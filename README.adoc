@@ -51,8 +51,6 @@ The Open Liberty Operator watches Open Liberty resources and creates various Kub
 including `Deployments`, `Services`, and `Routes`, depending on the configurations. 
 The Operator then continuously compares the current state of the resources, the desired state
 of application deployment, and reconciles them when necessary.
-You can learn more about how the reactive Java services used in this guide work by checking out the
-https://openliberty.io/guides/microprofile-reactive-messaging.html[Creating reactive Java microservices^] guide.
 
 == Additional prerequisites
 
