@@ -11,12 +11,9 @@ spec:
   # tag::sysImage[]
   applicationImage: guide/system-imagestream:1.0-SNAPSHOT
   # end::sysImage[]
-  # tag::replicas[]
-  replicas: 3
-  # end::replicas[]
   service:
     # tag::servicePort[]
-    port: 9085
+    port: 9080
     # end::servicePort[]
   # end::service[]
   # tag::expose[]

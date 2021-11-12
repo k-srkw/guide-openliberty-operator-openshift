@@ -10,27 +10,27 @@
 :page-layout: guide-multipane
 :page-duration: 30 minutes
 :page-releasedate: 2021-11-10
-:page-description: Explore how to deploy microservices to Red Hat OpenShift by using Kubernetes Operators like the Open Liberty Operator.
+:page-description: Explore how to deploy a microservice to Red Hat OpenShift by using the Open Liberty Kubernetes Operator.
 :page-tags: ['Kubernetes', 'Docker', 'Cloud'] 
 :page-permalink: /guides/{projectid}
 :page-related-guides: ['cloud-openshift', 'cloud-openshift-operator', 'okd']
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/prod
 :imagesdir: /img/guide/{projectid}
 :source-highlighter: prettify
-:page-seo-title: Deploying microservices to Red Hat OpenShift by using Kubernetes Operators
-:page-seo-description: A getting started tutorial with examples on how to deploy cloud-native Java applications and microservices to Red Hat OpenShift cluster by using Kubernetes Operators like the Open Liberty Operator.
+:page-seo-title: Deploying a microservice to Red Hat OpenShift by using a Kubernetes Operator
+:page-seo-description: A getting started tutorial with examples on how to deploy a cloud-native Java application and a microservice to Red Hat OpenShift cluster by using a Kubernetes Operator like the Open Liberty Operator.
 :guide-author: Open Liberty
-= Deploying microservices to OpenShift by using Kubernetes Operators
+= Deploying a microservice to OpenShift by using a Kubernetes Operator
 
 [.hidden]
 NOTE: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website^].
 
-Explore how to deploy microservices to Red Hat OpenShift by using Kubernetes Operators.
+Explore how to deploy a microservice to Red Hat OpenShift by using a Kubernetes Operator.
 
 == What you'll learn 
 
-You will learn how to deploy a cloud-native application with 1 microservice to Red Hat OpenShift 4 by using Kubernetes Operators like the Open Liberty Operator. 
-You will install an operator into an OpenShift cluster and use them to deploy and scale sample microservices. 
+You will learn how to deploy a cloud-native application with a microservice to Red Hat OpenShift 4 by using the Open Liberty Kubernetes Operator. 
+You will install an operator into an OpenShift cluster and use them to deploy and scale a sample microservice. 
 
 https://www.openshift.com/[OpenShift^] is a Kubernetes-based platform with added functions. It streamlines the DevOps
 process by providing an intuitive development pipeline. It also provides integration with multiple tools to make the
@@ -56,7 +56,7 @@ https://openliberty.io/guides/microprofile-reactive-messaging.html[Creating reac
 
 == Additional prerequisites
 
-Before you can deploy your microservices, you must gain access to a cluster on OpenShift and have an OpenShift client installed. 
+Before you can deploy your microservice, you must gain access to a cluster on OpenShift and have an OpenShift client installed. 
 For client installation instructions, refer to https://docs.openshift.com/container-platform/4.5/cli_reference/openshift_cli/getting-started-cli.html[the official OpenShift Online documentation^].
 
 There are various OpenShift offerings. You can use the https://learn.openshift.com/playgrounds[OpenShift 4.7 Playground^], which provides
@@ -126,7 +126,7 @@ The `finish` directory contains the finished project that you will build.
 
 // no "try what you'll build" section in this guide since it would be too long due to all setup the user will have to do.
 
-== Installing the Operators
+== Installing the Operator
 
 When you obtained your OpenShift cluster, you received login information for the
 https://docs.openshift.com/container-platform/4.5/web_console/web-console.html[OpenShift web console^].
@@ -194,14 +194,13 @@ include::finish/build.yaml[]
 To deploy the `system` microservice, you must first package the microservice, then create and
 run an OpenShift build to produce runnable container images of the packaged microservice.
 
-=== Packaging the microservices
+=== Packaging the microservice
 
-Ensure that you are in the `start` directory and run the following commands to package the `system`
+Ensure that you are in the `start` directory and run the following command to package the `system`
 microservice:
 
 [role='command']
 ```
-mvn -pl models clean install
 mvn clean package
 ```
 
@@ -411,7 +410,7 @@ Look for an output that is similar to the following example:
 [role='no_copy']
 ```
 NAME     HOST/PORT                                                     PATH   SERVICES   PORT       TERMINATION   WILDCARD
-system   system-guide.2886795274-80-kota02.environments.katacoda.com          system     9085-tcp                 None
+system   system-guide.2886795274-80-kota02.environments.katacoda.com          system     9080-tcp                 None
 ```
 
 
@@ -422,49 +421,6 @@ Make sure to substitute the appropriate `HOST` value.
 For example, using the output from the command above, `system-guide.2886795274-80-kota02.environments.katacoda.com` is the `HOST`.
 The following example shows this value substituted for `HOST` in the URL:
 `\http://system-guide.2886795274-80-kota02.environments.katacoda.com/inventory/systems`.
-
-== Scaling up the system microservices
-
-//File 0
-deploy.yaml
-[source, yaml, linenums, role='code_column']
-----
-include::finish/deploy.yaml[]
-----
-
-Scaling up microservices is easy with Operators. Simply update the `deploy.yaml` file with the `replica: n` parameter,
-where `n` is the number of instances that you want.
-
-[role="code_command hotspot file=0", subs="quotes"]
-----
-#Update the `deploy.yaml` configuration file in the `start` directory.#
-`deploy.yaml`
-----
-[role="edit_command_text"]
-Add the [hotspot=replicas file=0]`replicas` parameter to the `system` configuration.
-
-Run the following command to update the `system` resource:
-
-[role='command']
-```
-oc apply -f deploy.yaml
-```
-
-Look for the following output:
-
-[role='no_copy']
-```
-openlibertyapplication.openliberty.io/system configured
-```
-
-Run the following command to see the newly scaled up `system` pods:
-
-[role='command']
-```
-oc get pods
-```
-
-When you see a status of `Running` on all of the `system` pods, your application is ready. 
 
 == Tearing down the environment
 
@@ -479,7 +435,7 @@ This command deletes all the applications and resources.
 
 == Great work! You're done!
 
-You just deployed two microservices running in Open Liberty to OpenShift by using the Open Liberty Operator.
+You just deployed a microservice running in Open Liberty to OpenShift by using the Open Liberty Operator.
 
 == Related Links
 
