@@ -27,8 +27,6 @@ NOTE: This repository contains the guide documentation source. To view the guide
 
 Explore how to deploy a microservice to Red Hat OpenShift by using a Kubernetes Operator.
 
-:os-project: guide
-
 == What you'll learn
 
 You will learn how to deploy a cloud-native application with a microservice to Red Hat OpenShift 4 by using the Open Liberty Kubernetes Operator. 
@@ -281,8 +279,8 @@ Look for the output that is similar to the following example:
 
 [role='no_copy']
 ```
-NAME                      TYPE     FROM             STATUS     STARTED
-system-buildconfig-1      Docker   Binary@f24cb58   Running    45 seconds ago
+NAME                    TYPE     FROM             STATUS     STARTED
+system-buildconfig-1    Docker   Binary@f24cb58   Running    45 seconds ago
 ```
 
 You may need to wait some time until the build is complete. To check whether the build is complete, run the following
@@ -311,15 +309,15 @@ The following example shows part of the `system-imagestream` output:
 
 [role='no_copy']
 ```
-Name:                     system-imagestream
-Namespace:                {os-project}
-Created:                  2 minutes ago
-Labels:                   name=system
-Annotations:              <none>
-Image Repository:         default-route-openshift-image-registry.apps-crc.testing/{os-project}/system-imagestream
-Image Lookup:             local=false
-Unique Images:            1
-Tags:                     1
+Name:               system-imagestream
+Namespace:          guide
+Created:            2 minutes ago
+Labels:             name=system
+Annotations:        <none>
+Image Repository:   default-route-openshift-image-registry.apps-crc.testing/guide/system-imagestream
+Image Lookup:       local=false
+Unique Images:      1
+Tags:               1
 
 ...
 ```
@@ -391,22 +389,11 @@ You can also replace `OpenLibertyApplications` with the shortname `olapps`.
 
 Look for output that is similar to the following example:
 
-// Static guide instruction
-ifndef::cloud-hosted[]
 [role='no_copy']
 ```
-NAME        IMAGE                                      EXPOSED   RECONCILED   AGE
-system      guide/system-imagestream:1.0-SNAPSHOT      true      True         10s
+NAME      IMAGE                                    EXPOSED   RECONCILED   AGE
+system    guide/system-imagestream:1.0-SNAPSHOT    true      True         10s
 ```
-endif::[]
-
-// Cloud-hosted guide instruction
-ifdef::cloud-hosted[]
-```
-NAME     IMAGE                                        EXPOSED   RECONCILED   AGE
-system   sn-lab-user/system-imagestream:1.0-SNAPSHOT  true      True         10s
-```
-endif::[]
 
 A `RECONCILED` state value of `True` indicates that the operator was able to successfully process the `OpenLibertyApplications` instances. 
 Run the following command to view details of your microservice:
