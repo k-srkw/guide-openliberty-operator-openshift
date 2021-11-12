@@ -1,4 +1,4 @@
-// Copyright (c) 2020, 2021 IBM Corporation and others.
+// Copyright (c) 2021 IBM Corporation and others.
 // Licensed under Creative Commons Attribution-NoDerivatives
 // 4.0 International (CC BY-ND 4.0)
 //   https://creativecommons.org/licenses/by-nd/4.0/
@@ -9,7 +9,7 @@
 :projectid: openliberty-operator-intro
 :page-layout: guide-multipane
 :page-duration: 30 minutes
-:page-releasedate: 2021-11-10
+:page-releasedate: 2021-11-22
 :page-description: Explore how to deploy a microservice to Red Hat OpenShift by using the Open Liberty Kubernetes Operator.
 :page-tags: ['Kubernetes', 'Docker', 'Cloud'] 
 :page-permalink: /guides/{projectid}
@@ -27,7 +27,7 @@ NOTE: This repository contains the guide documentation source. To view the guide
 
 Explore how to deploy a microservice to Red Hat OpenShift by using a Kubernetes Operator.
 
-== What you'll learn 
+== What you'll learn
 
 You will learn how to deploy a cloud-native application with a microservice to Red Hat OpenShift 4 by using the Open Liberty Kubernetes Operator. 
 You will install an operator into an OpenShift cluster and use them to deploy and scale a sample microservice. 
@@ -37,7 +37,7 @@ process by providing an intuitive development pipeline. It also provides integra
 deployment and management of cloud applications easier.
 You can learn more about Kubernetes by checking out the https://openliberty.io/guides/kubernetes-intro.html[Deploying microservices to Kubernetes^] guide.
 
-https://kubernetes.io/docs/concepts/extend-kubernetes/operator/#operators-in-kubernetes[Kubernetes operators]
+https://kubernetes.io/docs/concepts/extend-kubernetes/operator/#operators-in-kubernetes[Kubernetes operators^]
 provide an easy way to automate the management and updating of applications by abstracting away some of the details of cloud application management.
 To learn more about operators, check out this https://www.openshift.com/learn/topics/operators[Operators tech topic article^]. 
 
