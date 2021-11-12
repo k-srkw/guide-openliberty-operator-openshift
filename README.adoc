@@ -132,6 +132,13 @@ endif::[]
 
 // Cloud hosted guide instruction
 ifdef::cloud-hosted[]
+A project is created for you to use in this execise. Run the following command to see your project name:
+
+```
+oc projects
+```
+{: codeblock}
+
 In this Skill Network enviornment, the Open Liberty Operator is already installed. If you like to learn how to install the Open Liberty Operator,
 you can read the https://openliberty.io/guides/cloud-openshift-operator.html[Deploying microservices to OpenShift by using Kubernetes Operators^] guide.
 endif::[]
@@ -424,6 +431,8 @@ The following example shows this value substituted for `HOST` in the URL:
 
 == Tearing down the environment
 
+// Static guide instruction
+ifndef::cloud-hosted[]
 When you no longer need your project, switch to another project and delete the project `guide` by running the following command:
 
 [role='command']
@@ -432,6 +441,19 @@ oc delete project guide
 ```
 
 This command deletes all the applications and resources.
+endif::[]
+
+// Cloud-hosted guide instruction
+ifdef::cloud-hosted[]
+When you no longer need your deployed microservice, you can delete all resources by running the following commands:
+
+```
+oc delete -f deploy.yaml
+oc delete istag/system-imagestream:1.0-SNAPSHOT
+oc delete bc system-buildconfig
+```
+{: codeblock}
+endif::[]
 
 == Great work! You're done!
 
