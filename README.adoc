@@ -457,6 +457,16 @@ For example, using the output from the command above, `system-guide.2886795274-8
 The following example shows this value substituted for `HOST` in the URL:
 `\http://system-guide.2886795274-80-kota02.environments.katacoda.com/system/properties`.
 
+// Cloud-hosted guide instruction
+ifdef::cloud-hosted[]
+Or, you can run the following command to get the URL:
+```
+IFS=' ' read -r -a system_url <<< "`oc get routes | grep system`"
+echo http://${system_url[1]}/system/properties
+```
+{: codeblock}
+endif::[]
+
 == Tearing down the environment
 
 // Static guide instruction
