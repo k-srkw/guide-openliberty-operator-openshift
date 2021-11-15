@@ -27,4 +27,4 @@ jobs:
           repo: OpenLiberty/cloud-hosted-guides
           token: ${{ secrets.GUIDECONVERSIONTOOL_PASSWORD }}
           inputs: '{ "branch": "staging", "guide_name": "${{ github.event.repository.name }}" }'
-          ref: "refs/heads/staging"
+          ref: "refs/heads/draft"
