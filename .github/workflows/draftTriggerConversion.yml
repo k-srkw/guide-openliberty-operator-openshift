@@ -6,11 +6,6 @@ on:
   push:
     branches:
       - 'draft'
-    paths:
-      - 'README.adoc'
-      - 'start/**'
-      - 'finish/**'
-      - 'assets/**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
