@@ -468,6 +468,7 @@ echo http://${system_url[1]}/system/properties
  Then, to visit the URL, press **CTRL** and mouse click on the URL in the terminal.
  endif::[]
 
+
 == Tearing down the environment
 
 // Static guide instruction
