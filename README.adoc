@@ -484,7 +484,7 @@ endif::[]
 
 == Great work! You're done!
 
-You just deployed a microservice running in Open Liberty to OpenShift by using the Open Liberty Operator.
+You just deployed a microservice running in Open Liberty to OpenShift 4 by using the Open Liberty Operator.
 
 == Related Links
 
