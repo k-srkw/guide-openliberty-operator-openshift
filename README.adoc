@@ -184,9 +184,9 @@ mvn clean package
 {: codeblock}
 endif::[]
 
-=== Building and pushing the images
+=== Building and pushing the image
 
-Create a build template to configure how to build your container images.
+Create a build template to configure how to build your container image.
 
 [role="code_command hotspot file=0", subs="quotes"]
 ----
@@ -254,7 +254,7 @@ command to view the build log until the `Push successful` message appears:
 oc logs build/system-buildconfig-1
 ```
 
-=== Checking the images
+=== Checking the image
 
 During the build process, the image associated with the `ImageStream` object that you created earlier was pushed to the image registry and tagged. Run the following command to view the newly updated `ImageStream` object:
 
@@ -289,7 +289,7 @@ Tags:               1
 
 Now you're ready to deploy the image.
 
-=== Deploying the images
+=== Deploying the image
 //File 0
 deploy.yaml
 [source, yaml, linenums, role='code_column hide_tags=replicas']
