@@ -290,12 +290,6 @@ Tags:               1
 Now you're ready to deploy the image.
 
 === Deploying the image
-//File 0
-deploy.yaml
-[source, yaml, linenums, role='code_column hide_tags=replicas']
-----
-include::finish/deploy.yaml[]
-----
 
 You can configure the specifics of the Open Liberty Operator-controlled deployment with a YAML configuration file.
 
@@ -303,6 +297,12 @@ You can configure the specifics of the Open Liberty Operator-controlled deployme
 ----
 #Create the `deploy.yaml` configuration file in the `start` directory.#
 `deploy.yaml`
+----
+
+deploy.yaml
+[source, yaml, linenums, role='code_column hide_tags=healthProbes']
+----
+include::finish/deploy.yaml[]
 ----
 
 The [hotspot file=0]`deploy.yaml` file is configured to deploy one [hotspot=olapp file=0]`OpenLibertyApplication` resource, [hotspot=system file=0]`system`, which is controlled by the Open Liberty Operator.
