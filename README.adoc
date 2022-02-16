@@ -408,6 +408,12 @@ echo http://${system_url[1]}/system/properties
 Then, hold the **CTRL** key and click on the URL in the terminal to visit the microservice.
 endif::[]
 
+When you’re done trying out the microservice, run following command to stop the microservice:
+[role='command']
+```
+oc delete -f deploy.yaml
+```
+
 == Specifying other parameters
 
 You can visit the https://github.com/OpenLiberty/open-liberty-operator/blob/main/doc/user-guide-v1beta2.adoc#configuration[Open Liberty Operator user guide^] to find all of the supported optional parameters.
