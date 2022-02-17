@@ -212,7 +212,7 @@ Next, run the following command to view the newly created `ImageStream` objects 
 oc get all -l name=system
 ```
 
-Look for the following simialar resources:
+Look for the following similar resources:
 
 [role='no_copy']
 ```
