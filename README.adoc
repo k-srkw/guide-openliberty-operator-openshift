@@ -154,13 +154,6 @@ endif::[]
 
 == Deploying the system microservice to OpenShift
 
-//File 0
-build.yaml
-[source, yaml, linenums, role='code_column']
-----
-include::finish/build.yaml[]
-----
-
 To deploy the `system` microservice, you must first package the microservice, then create and run an OpenShift build to produce runnable container images of the packaged microservice.
 
 === Packaging the microservice
@@ -192,6 +185,13 @@ Create a build template to configure how to build your container image.
 ----
 #Create the `build.yaml` template file in the `start` directory.#
 `build.yaml`
+----
+
+//File 0
+build.yaml
+[source, yaml, linenums, role='code_column']
+----
+include::finish/build.yaml[]
 ----
 
 The [hotspot file=0]`build.yaml` template includes two objects. The [hotspot=imageStream file=0]`ImageStream` object provides an abstraction from the image in the image registry. This allows you to reference and tag the image. The image registry used is the integrated internal OpenShift Container Registry.
