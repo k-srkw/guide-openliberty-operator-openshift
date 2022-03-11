@@ -394,8 +394,7 @@ Make sure to substitute the appropriate `[HOST]` value. For example, using the o
 ifdef::cloud-hosted[]
 Or, you can run the following command to get the URL:
 ```bash
-IFS=' ' read -r -a system_url <<< "`oc get routes | grep system`"
-echo http://${system_url[1]}/system/properties
+echo http://`oc get routes system -o jsonpath='{.spec.host}'`/system/properties
 ```
 
 Then, hold the **CTRL** key and click on the URL in the terminal to visit the microservice.
