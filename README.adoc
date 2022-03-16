@@ -321,7 +321,7 @@ endif::[]
 
 // Cloud-hosted guide instruction
 ifdef::cloud-hosted[]
-Run the following commands to update the **applicationImage** and deploy the **system** microservice with the previously explained configuration:
+Run the following commands to update the **applicationImage** with the **pullSecret** and deploy the **system** microservice with the previously explained configuration:
 ```bash
 sed -i 's=guide/system-imagestream:1.0-SNAPSHOT='"$SN_ICR_NAMESPACE"'/system-imagestream:1.0-SNAPSHOT\n  pullPolicy: Always\n  pullSecret: icr=g' deploy.yaml
 oc apply -f deploy.yaml
@@ -434,6 +434,8 @@ Run the following command to deploy the `system` microservice with the new confi
 ```
 oc apply -f deploy.yaml
 ```
+
+You can revisit the microservice at `http://[HOST]/system/properties` as the previous section.
 endif::[]
 
 // Cloud-hosted guide instruction
@@ -443,9 +445,14 @@ Run the following commands to update the **applicationImage** with the **pullSec
 sed -i 's=guide/system-imagestream:1.0-SNAPSHOT='"$SN_ICR_NAMESPACE"'/system-imagestream:1.0-SNAPSHOT\n  pullPolicy: Always\n  pullSecret: icr=g' deploy.yaml
 oc apply -f deploy.yaml
 ```
-endif::[]
 
-You can revisit the microservice at `http://[HOST]/system/properties` as the previous section.
+Run the following command to get the URL:
+```bash
+echo http://`oc get routes system -o jsonpath='{.spec.host}'`/system/properties
+```
+
+Then, hold the **CTRL** key and click on the URL in the terminal to visit the microservice.
+endif::[]
 
 == Tearing down the environment
 
