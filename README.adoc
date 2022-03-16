@@ -438,7 +438,7 @@ endif::[]
 
 // Cloud-hosted guide instruction
 ifdef::cloud-hosted[]
-Run the following commands to update the **applicationImage** and deploy the **system** microservice with the new configuration:
+Run the following commands to update the **applicationImage** with the **pullSecret** and deploy the **system** microservice with the new configuration:
 ```bash
 sed -i 's=guide/system-imagestream:1.0-SNAPSHOT='"$SN_ICR_NAMESPACE"'/system-imagestream:1.0-SNAPSHOT\n  pullPolicy: Always\n  pullSecret: icr=g' deploy.yaml
 oc apply -f deploy.yaml
