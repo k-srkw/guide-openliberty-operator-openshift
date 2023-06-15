@@ -12,7 +12,9 @@ cd /home/project/guide-openliberty-operator-openshift/finish
 mvn clean package
 oc process -f build.yaml | oc create -f - || exit 1
 oc start-build system-buildconfig --from-dir=system/. || exit 1
+sleep 240
 
+time_out=0
 while :
 do
     if [ "$(oc logs build/system-buildconfig-1 | grep "Push successful")" = "Push successful" ];
@@ -21,9 +23,25 @@ do
         break
     fi
 
+    time_out=$((time_out + 1))
     sleep 15
+
+    if [ "$time_out" = "12" ]; 
+    then
+        echo Unable to build
+        oc logs build/system-buildconfig-1
+        oc delete imagestream.image.openshift.io/system-imagestream
+        oc delete bc system-buildconfig
+        exit 1
+    fi
 done
 
+oc get imagestreams
+oc describe imagestream/system-imagestream
+
+sed -i 's=v1=v1beta2=g' deploy.yaml
+sed -i 's=9443=9080=g' deploy.yaml
+sed -i 's=HTTPS=HTTP=g' deploy.yaml
 sed -i 's=guide/system-imagestream:1.0-SNAPSHOT='"$SN_ICR_NAMESPACE"'/system-imagestream:1.0-SNAPSHOT\n  pullPolicy: Always\n  pullSecret: icr=g' deploy.yaml
 oc apply -f deploy.yaml
 
@@ -40,7 +58,7 @@ do
     time_out=$((time_out + 1))
     sleep 5
 
-    if [ "$time_out" = "24" ]; 
+    if [ "$time_out" = "36" ]; 
     then
         echo Unable to reach /health endpoint
         echo Try rerunning the this test script
