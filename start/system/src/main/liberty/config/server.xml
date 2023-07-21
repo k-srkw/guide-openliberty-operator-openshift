@@ -16,4 +16,5 @@
         httpsPort="${default.https.port}" id="defaultHttpEndpoint" />
 
     <webApplication location="guide-openliberty-operator-openshift-system.war" contextRoot="/" />
+    <logging messageFileName="${env.POD_NAME}_messages.log" />
 </server>
