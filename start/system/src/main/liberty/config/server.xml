@@ -7,6 +7,7 @@
         <feature>jsonp-2.1</feature>
         <feature>mpHealth-4.0</feature>
         <feature>ssl-1.0</feature>
+        <feature>mpMetrics-5.0</feature>
     </featureManager>
 
     <variable name="default.http.port" defaultValue="9080" />
@@ -17,4 +18,5 @@
 
     <webApplication location="guide-openliberty-operator-openshift-system.war" contextRoot="/" />
     <logging messageFileName="${env.POD_NAME}_messages.log" />
+    <mpMetrics authentication="false"/>
 </server>
